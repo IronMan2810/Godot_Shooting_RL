@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "shooting"
+version = "0.1.0"
+description = ""
+authors = ["IronMan2810 <haykk2005@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+matplotlib = "^3.8.0"
+tensorflow = "^2.14.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,31 @@
+# Python-specific ignore patterns
+__pycache__/
+*.pyc
+/.venv/
+token.txt
+
+# Ignore system-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE or editor-specific files
+.vscode/
+.idea/
+*.code-workspace
+*.iml
+
+# Ignore logs and cache files
+*.log
+__pycache__/
+*.cache
+
+# Ignore build and compiled files
+/build/
+/dist/
+*.egg-info/
+
+# Ignore user-specific files or configurations
+*.env
+
+# Ignore any sensitive or secret information
+.env

@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://ctahsvj88g1om"]
+
+[ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_eisjc"]
+[ext_resource type="Script" path="res://game.gd" id="1_f4vyw"]
+[ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="1_ujgwk"]
+[ext_resource type="PackedScene" uid="uid://0epshwdldf8x" path="res://Scenes/FixedCamera/camera_3d.tscn" id="1_wutnl"]
+[ext_resource type="Script" path="res://Scenes/Enemy/enemy.gd" id="4_bvpcs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
+
+[sub_resource type="Sky" id="Sky_ivwug"]
+sky_material = SubResource("ProceduralSkyMaterial_6g5uc")
+
+[sub_resource type="Environment" id="Environment_l5pxq"]
+background_mode = 2
+background_color = Color(0.2139, 0.570975, 0.69, 1)
+sky = SubResource("Sky_ivwug")
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_f4vyw")
+
+[node name="FixedCamera" parent="." instance=ExtResource("1_wutnl")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l5pxq")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.182362, -0.512743, 0.838951, 0.181419, -0.821061, -0.541244, -0.00693703, 59.5145, -109.348)
+light_energy = 1.232
+light_indirect_energy = 0.884
+light_volumetric_fog_energy = 0.768
+shadow_enabled = true
+
+[node name="Floor" parent="." instance=ExtResource("1_ujgwk")]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("1_ujgwk")]
+transform = Transform3D(5.31032, 0, 0, 0, 6.029, 0, 0, 0, 4.67, 0, 4.01459, 0)
+script = ExtResource("4_bvpcs")
+block_color_group = 5
+
+[node name="agent1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.619, 0)
+
+[node name="Player" parent="agent1" instance=ExtResource("1_eisjc")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0)
+
+[node name="Epoch" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_bottom = 26.0
+grow_horizontal = 0
+text = "Epoch: 0"
+
+[node name="Timer" type="Label" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Time Left: 20"

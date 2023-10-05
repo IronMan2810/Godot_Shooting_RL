@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://7gv6q50fuutj"]
+
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_1w47b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wbun5"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6b3ky"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jyxsr"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_1w47b")
+
+[node name="Is_touch_enemy" type="RayCast3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, -4, 0)
+target_position = Vector3(60, 0, 0)
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000856694, 0)
+shape = SubResource("CapsuleShape3D_wbun5")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_6b3ky")
+
+[node name="Head" type="Node3D" parent="."]
+
+[node name="Nose" type="MeshInstance3D" parent="Head"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 1.1, 0, 0.468, -0.992447)
+mesh = SubResource("BoxMesh_jyxsr")
+skeleton = NodePath("../..")
+
+[node name="Camera3d" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.468, -0.463)
+
+[node name="RayCast3d" type="RayCast3D" parent="Head/Camera3d"]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0, 0, 0)
+target_position = Vector3(60, 0, 0)
+
+[node name="Agent_n" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0150988, 1.00607, 0.0583781)
+modulate = Color(0, 0, 0, 1)
+text = "1"
+font_size = 256
+
+[node name="Info" type="Label" parent="."]
+offset_right = 181.0
+offset_bottom = 26.0
