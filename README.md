@@ -1,6 +1,6 @@
-# Godot Shooting Game Reinforcement Learning
+# Godot Shooting Reinforcement Learning
 
-Welcome to the Godot Shooting Game reinforcement learning.
+Welcome to the Godot Shooting reinforcement learning.
 
 ## Setup Instructions
 Follow these steps to set up and run the training:
